@@ -10,6 +10,12 @@ public class Account{
 		dateCreated = new java.util.Date();
 	}
 	
+	Account(int newId , double newBalance){
+		dateCreated = new java.util.Date();
+		id = newId;
+		balance = newBalance;
+	}
+	
 	int getId(){
 		return id;
 	}
@@ -54,15 +60,18 @@ public class Account{
 		balance += putMoney;
 	}
 	
+	public String toString(){
+		return "Today is " + getDateCreated() + ".\nNow you have $" + (int)getBalance() 
+		+ "\nMonthly interest is " + getMonthlyInterest();
+	}
+	
 	public static void main(String[] args){
-		Account account = new Account();
-		account.setId(1122);
-		account.setBalance(20000);
-		account.setAnnualInterestRate(4.5);
-		account.withdraw(2500);
-		account.deposit(3000);
-		
-		System.out.print("餘額 " + (int)account.getBalance() + "\n月利息 " + account.getMonthlyInterest() 
-		+ "\n日期 " + account.getDateCreated());
+		SavingsAccount savingsAccount = new SavingsAccount();
+		savingsAccount.saving();
+		System.out.println(savingsAccount.toString());
+		System.out.println();
+		CheckingAccount checkingAccount = new CheckingAccount();
+		checkingAccount.checking();
+		System.out.println(checkingAccount.toString());
 	}
 }
