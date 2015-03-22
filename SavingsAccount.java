@@ -8,8 +8,8 @@ class SavingsAccount extends Account{
 		super();
 	}
 	
-	SavingsAccount(int id ; double balance){
-		super(id , balance);
+	SavingsAccount(int newId ; double newBalance){
+		super(newId , newBalance);
 	}
 	
 	public void saving(){
