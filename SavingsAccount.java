@@ -1,44 +1,47 @@
+import java.util.Scanner;
+
 class SavingsAccount extends Account{
 	private int id;
 	private double balance;
-	private double takeMoney;
+	private double takeMoney = 0;
 	private double putMoney;
 	
 	SavingsAccount(){
 		super();
 	}
 	
-	SavingsAccount(int newId ; double newBalance){
+	SavingsAccount(int newId , double newBalance){
 		super(newId , newBalance);
 	}
 	
 	public void saving(){
 		Scanner input = new Scanner(System.in);
-		System.out.print("Please enter this saving account's ID: );
+		
+		System.out.print("Please enter this saving account's ID: ");
 		id = input.nextInt();
 		super.setId(id);
 		setBalance(20000);
-		System.out.print("This saving account have $" + (int)getBalance());
+		System.out.println("This saving account have $" + (int)getBalance());
 		super.setAnnualInterestRate(4.5);
 		
 		do{
-			System.out.print("How much money you want to take ?");
+			System.out.print("How much money you want to take ? ");
 			takeMoney = input.nextDouble();
 			
 			if(takeMoney > 20000)
-				System.out.print("You can not take that much money");
+				System.out.println("You can not take that much money");
 		}while(takeMoney > 20000);
 		
 		super.withdraw(takeMoney);
 		
-		System.out.print("How much money you want to store ?");
+		System.out.print("How much money you want to store ? ");
 		putMoney = input.nextDouble();
 		super.deposit(putMoney);
 		
 		System.out.println();
 	}
 	
-	String toString(){
+	public String toString(){
 		return super.toString();
 	}
 }
