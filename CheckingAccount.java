@@ -26,9 +26,11 @@ class CheckingAccount extends Account{
 		//input id and print out balance
 		System.out.print("Please enter this checking account's ID: ");
 		id = input.nextInt();
+		//invoke the setId method in Account
 		super.setId(id);
 		setBalance(20000);
 		System.out.println("This checking account have $" + (int)getBalance());
+		//invoke the setAnnualInterestRate method in Account
 		super.setAnnualInterestRate(4.5);
 		
 		//let the user takes money
@@ -38,6 +40,7 @@ class CheckingAccount extends Account{
 		if(takeMoney > 20000)
 			System.out.println("You will need to store money to balance this check.");
 		
+		//invoke the withdraw method in Account
 		super.withdraw(takeMoney);
 		
 		//let the user stores money
@@ -49,6 +52,7 @@ class CheckingAccount extends Account{
 			if((super.getBalance()+putMoney) < 0)
 				System.out.println("You need to store money to balance this check.");
 			
+			//invoke the deposit method in Account
 			super.deposit(putMoney);
 		}while(super.getBalance() < 0);
 		
